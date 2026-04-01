@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Eureka Staffing Innovations — Company Profile</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600&family=Newsreader:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --cream: #faf8f3;
+  --paper: #fffefb;
+  --ink: #1c1a16;
+  --ink2: #3d3a32;
+  --warm: #8c7355;
+  --border: #e8e2d6;
+  --border2: #d4ccba;
+  --accent: #2c5f4a;
+  --accent2: #3d7a61;
+  --gold: #b8860b;
+  --gold2: #d4a843;
+  --rust: #8b3a2a;
+  --rust2: #c0503a;
+  --blue: #1e3a5f;
+  --blue2: #2a5085;
+  --muted: #7a7260;
+  --light: #f0ece3;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  line-height: 1.65;
+}
+
+/* ── COVER ── */
+.cover {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  background: var(--paper);
+  border-bottom: 2px solid var(--ink);
+  position: relative;
+  overflow: hidden;
+}
+.cover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    0deg, transparent, transparent 28px,
+    rgba(0,0,0,0.018) 28px, rgba(0,0,0,0.018) 29px
+  );
+  pointer-events: none;
+}
+.cover-top {
+  padding: 36px 56px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  z-index: 1;
+}
+.logo-area { display: flex; align-items: center; gap: 14px; }
+.logo-name {
+  font-family: 'Lora', serif;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  color: var(--ink);
+  line-height: 1.2;
+}
+.logo-sub {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+.cover-doc-label {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: 1px solid var(--border2);
+  padding: 6px 14px;
+  border-radius: 2px;
+}
+.cover-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 56px;
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+}
+.cover-eyebrow {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.cover-eyebrow::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--accent);
+}
+.cover-h1 {
+  font-family: 'Lora', serif;
+  font-size: clamp(40px, 5.5vw, 72px);
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: -0.5px;
+  color: var(--ink);
+  margin-bottom: 28px;
+}
+.cover-h1 em { font-style: italic; font-weight: 400; color: var(--accent); }
+.cover-intro {
+  font-family: 'Newsreader', serif;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--ink2);
+  max-width: 580px;
+  font-style: italic;
+}
+.cover-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 44px;
+}
+.pill {
+  font-size: 11px;
+  padding: 6px 16px;
+  border: 1px solid var(--border2);
+  border-radius: 2px;
+  color: var(--ink2);
+  letter-spacing: 0.5px;
+  background: transparent;
+}
+.pill.a {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+}
+.cover-bottom {
+  padding: 24px 56px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  position: relative;
+  z-index: 1;
+}
+.cover-loc {
+  font-size: 12px;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.cover-loc::before { content: '◦'; color: var(--accent); }
+.cover-contact { font-size: 12px; color: var(--muted); }
+.cover-contact a { color: var(--muted); text-decoration: none; }
+.cover-contact a:hover { color: var(--accent); }
+
+/* ── NAVIGATION ── */
+.nav {
+  background: var(--ink);
+  padding: 0 56px;
+  display: flex;
+  overflow-x: auto;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.nav a {
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 16px 18px;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+.nav a:hover { color: white; border-bottom-color: var(--gold2); }
+
+/* ── SECTIONS ── */
+.section {
+  padding: 72px 56px;
+  border-bottom: 1px solid var(--border);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.sec-label {
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+.sec-h {
+  font-family: 'Lora', serif;
+  font-size: clamp(28px, 3.5vw, 46px);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.3px;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+.sec-h em { font-style: italic; color: var(--accent); }
+.sec-lead {
+  font-family: 'Newsreader', serif;
+  font-size: 17px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--ink2);
+  max-width: 640px;
+  line-height: 1.75;
+  margin-bottom: 44px;
+}
+
+/* ── WHY WE EXIST ── */
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  background: var(--border);
+}
+.story-card { background: var(--paper); padding: 36px 32px; }
+.sc-num {
+  font-family: 'Lora', serif;
+  font-size: 52px;
+  font-weight: 400;
+  color: var(--border);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+.sc-title {
+  font-family: 'Lora', serif;
+  font-size: 19px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+.sc-body { font-size: 14px; color: var(--ink2); line-height: 1.7; font-weight: 300; }
+
+/* ── HOW AI FITS IN ── */
+.ai-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+.ai-col-title {
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.ai-col-title span {
+  font-size: 11px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.ai-row {
+  display: flex;
+  gap: 14px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: flex-start;
+}
+.ai-row:last-child { border-bottom: none; }
+.ai-dot { width: 6px; height: 6px; border-radius: 50%; margin-top: 6px; flex-shrink: 0; }
+.ai-row-text { font-size: 13.5px; color: var(--ink2); line-height: 1.6; font-weight: 300; }
+
+/* ── SECTORS ── */
+.sectors-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.sector-card {
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--ink);
+  padding: 28px 24px;
+  background: var(--paper);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.sector-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.07); }
+.sector-card.bfsi { border-top-color: var(--gold); }
+.sector-card.it { border-top-color: var(--blue); }
+.sector-card.pharma { border-top-color: var(--accent); }
+.sector-icon { font-size: 26px; margin-bottom: 12px; }
+.sector-name {
+  font-family: 'Lora', serif;
+  font-size: 19px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: var(--ink);
+}
+.sector-desc { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 18px; font-weight: 300; }
+.sector-roles { display: flex; flex-wrap: wrap; gap: 6px; }
+.role-tag {
+  font-size: 11px;
+  padding: 3px 10px;
+  border: 1px solid var(--border2);
+  border-radius: 2px;
+  color: var(--ink2);
+  background: var(--cream);
+}
+
+/* ── MERGED: HOW WE WORK ── */
+.process-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 780px;
+}
+.ps-step {
+  display: flex;
+  gap: 32px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: flex-start;
+}
+.ps-step:last-child { border-bottom: none; }
+.ps-num-col { width: 48px; flex-shrink: 0; text-align: center; }
+.ps-num {
+  font-family: 'Lora', serif;
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--border2);
+  line-height: 1;
+}
+.ps-title {
+  font-family: 'Lora', serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.ps-desc { font-size: 13.5px; color: var(--ink2); line-height: 1.65; font-weight: 300; }
+.ps-badge {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 10px;
+  padding: 2px 9px;
+  border-radius: 2px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.badge-ai { background: #e6faf8; color: var(--accent2); border: 1px solid #b0d8cc; }
+.badge-human { background: #faf6ec; color: var(--gold); border: 1px solid #e0cc96; }
+.badge-both { background: #eef2f8; color: var(--blue2); border: 1px solid #b0c4dc; }
+
+/* Founder callout */
+.founder-callout {
+  margin-top: 40px;
+  border-left: 3px solid var(--accent);
+  padding: 20px 28px;
+  background: var(--light);
+  max-width: 780px;
+}
+.founder-callout-title {
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.founder-callout-text { font-size: 13.5px; color: var(--ink2); line-height: 1.65; font-weight: 300; }
+
+/* ── COMMITMENTS ── */
+.commitments {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: var(--border);
+  margin-bottom: 40px;
+}
+.commit-card { background: var(--paper); padding: 32px 24px; }
+.commit-val {
+  font-family: 'Lora', serif;
+  font-size: 42px;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.commit-label {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* ── PROMISE ── */
+.promise {
+  background: var(--ink);
+  color: white;
+  padding: 48px 56px;
+  position: relative;
+  overflow: hidden;
+}
+.promise::before {
+  content: '\201C';
+  position: absolute;
+  top: -20px;
+  left: 40px;
+  font-family: 'Lora', serif;
+  font-size: 200px;
+  color: rgba(255,255,255,0.04);
+  line-height: 1;
+  pointer-events: none;
+}
+.promise-text {
+  font-family: 'Lora', serif;
+  font-size: clamp(17px, 2vw, 24px);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.65;
+  max-width: 760px;
+  color: rgba(255,255,255,0.92);
+  position: relative;
+}
+.promise-text strong { font-style: normal; font-weight: 500; color: var(--gold2); }
+.promise-sig {
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+  margin-top: 18px;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+/* ── CONTACT ── */
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+.contact-details { display: flex; flex-direction: column; gap: 18px; margin-top: 32px; }
+.contact-row {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  font-size: 14px;
+  color: var(--ink2);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 18px;
+}
+.contact-label {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  width: 80px;
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+.contact-value { flex: 1; font-weight: 400; }
+.contact-value a { color: var(--ink2); text-decoration: none; border-bottom: 1px solid var(--border2); transition: color 0.2s; }
+.contact-value a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+.contact-right {
+  background: var(--light);
+  border: 1px solid var(--border);
+  padding: 36px;
+}
+.cr-title {
+  font-family: 'Lora', serif;
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  color: var(--ink);
+}
+.cr-body {
+  font-size: 14px;
+  color: var(--ink2);
+  line-height: 1.7;
+  font-weight: 300;
+  margin-bottom: 24px;
+}
+.cr-btn {
+  display: inline-block;
+  background: var(--accent);
+  color: white;
+  padding: 14px 28px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: background 0.2s;
+  border: none;
+  text-decoration: none;
+}
+.cr-btn:hover { background: var(--accent2); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--ink);
+  color: rgba(255,255,255,0.4);
+  padding: 28px 56px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
+
+@media(max-width:768px) {
+  .cover-top, .cover-main, .cover-bottom, .section, .promise, footer { padding-left: 24px; padding-right: 24px; }
+  .nav { padding: 0 24px; }
+  .story-grid, .ai-layout, .sectors-grid, .commitments, .contact-layout { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-top">
+    <div class="logo-area">
+      <div>
+        <div class="logo-name">Eureka Staffing Innovations</div>
+        <div class="logo-sub">Specialist Recruiting · India</div>
+      </div>
+    </div>
+    <div class="cover-doc-label">Company Profile · 2026</div>
+  </div>
+
+  <div class="cover-main">
+    <div class="cover-eyebrow">BFSI · IT &amp; FinTech · Pharma · PAN India</div>
+    <h1 class="cover-h1">
+      Finding the people<br/>
+      who <em>change things</em><br/>
+      for your business.
+    </h1>
+    <p class="cover-intro">
+      We are a specialist recruiting firm. We use AI to find candidates faster and human judgment to make sure they are actually right. The combination is rarer than it sounds.
+    </p>
+    <div class="cover-pills">
+      <div class="pill a">BFSI</div>
+      <div class="pill a">IT &amp; FinTech</div>
+      <div class="pill a">Pharma &amp; Healthcare</div>
+      <div class="pill">90-day replacement guarantee</div>
+    </div>
+  </div>
+
+  <div class="cover-bottom">
+    <div class="cover-loc">PAN India Operations</div>
+    <div class="cover-contact">
+      hr@eureka-staffing.com · <a href="https://eureka-staffing.com" target="_blank">eureka-staffing.com</a>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="#why">Why We Exist</a>
+  <a href="#ai">How AI Fits In</a>
+  <a href="#sectors">Sectors</a>
+  <a href="#process">How We Work</a>
+  <a href="#commitments">Commitments</a>
+  <a href="#contact">Get in Touch</a>
+</nav>
+
+<!-- WHY WE EXIST -->
+<section class="section" id="why">
+  <div class="sec-label">01 — Why We Exist</div>
+  <h2 class="sec-h">We started because<br/><em>we saw a gap.</em></h2>
+  <p class="sec-lead">Most companies hiring in BFSI, IT, or Pharma face the same problem: too many CVs that don't fit, or too long a wait for the ones that do. We built Eureka to fix both.</p>
+
+  <div class="story-grid">
+    <div class="story-card">
+      <div class="sc-num">01</div>
+      <div class="sc-title">Most agencies send volume. You need quality.</div>
+      <div class="sc-body">Sending twenty CVs and hoping the client filters them is an industry habit that wastes your time. We send two or three candidates we would genuinely vouch for — each spoken to, assessed, and specifically matched to your brief. Not a pile. A shortlist.</div>
+    </div>
+    <div class="story-card">
+      <div class="sc-num">02</div>
+      <div class="sc-title">Technology without judgment is just noise.</div>
+      <div class="sc-body">AI can scan thousands of CVs. But it cannot tell you that a candidate will accept a counter-offer, or that their "8 years of experience" is really 3 years repeated. That call is human. We use AI where it genuinely helps — speed and sourcing — and people where it actually matters: every decision, every placement.</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW AI FITS IN -->
+<section class="section" id="ai">
+  <div class="sec-label">02 — How AI Fits In</div>
+  <h2 class="sec-h">AI makes us faster.<br/><em>Humans make us right.</em></h2>
+  <p class="sec-lead">We are honest about what AI can and cannot do. It accelerates sourcing and data. It does not replace the judgment that makes a placement stick.</p>
+
+  <div class="ai-layout">
+    <div>
+      <div class="ai-col-title">Where we use AI <span>Makes us faster</span></div>
+      <div class="ai-row">
+        <div class="ai-dot" style="background:var(--accent2)"></div>
+        <div class="ai-row-text">Scanning and ranking thousands of candidate profiles across Naukri, LinkedIn, and GitHub — in hours, not days.</div>
+      </div>
+      <div class="ai-row">
+        <div class="ai-dot" style="background:var(--accent2)"></div>
+        <div class="ai-row-text">Generating role-specific boolean search strings that surface candidates generalist searches miss entirely.</div>
+      </div>
+      <div class="ai-row">
+        <div class="ai-dot" style="background:var(--accent2)"></div>
+        <div class="ai-row-text">Scoring CVs against your specific requirements before any human time is spent reviewing them.</div>
+      </div>
+      <div class="ai-row">
+        <div class="ai-dot" style="background:var(--accent2)"></div>
+        <div class="ai-row-text">Compiling accurate, up-to-date salary benchmarks and market intelligence to inform your hiring decisions.</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="ai-col-title">Where humans decide <span>Makes us right</span></div>
+      <div class="ai-row">
+        <div class="ai-dot" style="background:var(--gold)"></div>
+        <div class="ai-row-text">Every screening call. A CV score cannot hear hesitation, probe a vague answer, or assess genuine motivation.</div>
+      </div>
+      <div class="ai-row">
+        <div class="ai-dot" style="background:var(--gold)"></div>
+        <div class="ai-row-text">The final shortlist decision. We only send candidates we would personally recommend — AI narrows the field, we make the call.</div>
+      </div>
+      <div class="ai-row">
+        <div class="ai-dot" style="background:var(--gold)"></div>
+        <div class="ai-row-text">Offer negotiation and candidate management. Counter-offers, cold feet, last-minute concerns — these are human conversations.</div>
+      </div>
+      <div class="ai-row">
+        <div class="ai-dot" style="background:var(--gold)"></div>
+        <div class="ai-row-text">Every client relationship. The trust that earns a repeat mandate is built person to person — not algorithm to algorithm.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTORS -->
+<section class="section" id="sectors">
+  <div class="sec-label">03 — Sectors We Serve</div>
+  <h2 class="sec-h">Three sectors.<br/>Chosen <em>deliberately.</em></h2>
+  <p class="sec-lead">We recruit in three sectors and will not take work outside them. Every niche we operate in is one where we have genuine knowledge — not just a keyword list.</p>
+
+  <div class="sectors-grid">
+    <div class="sector-card bfsi">
+      <div class="sector-icon">🏦</div>
+      <div class="sector-name">BFSI</div>
+      <div class="sector-desc">Banks, NBFCs, insurance companies, and wealth management firms. One of India's most consistent hiring markets. We know the difference between someone who fits a public sector bank and someone who fits a boutique NBFC — they are very different people.</div>
+      <div class="sector-roles">
+        <span class="role-tag">Risk Analysts</span>
+        <span class="role-tag">Compliance Officers</span>
+        <span class="role-tag">Credit Analysts</span>
+        <span class="role-tag">Relationship Managers</span>
+        <span class="role-tag">Actuaries</span>
+        <span class="role-tag">Wealth Managers</span>
+        <span class="role-tag">Banking Technology</span>
+        <span class="role-tag">Insurance Specialists</span>
+      </div>
+    </div>
+
+    <div class="sector-card it">
+      <div class="sector-icon">💻</div>
+      <div class="sector-name">IT &amp; FinTech</div>
+      <div class="sector-desc">Product companies, SaaS startups, fintech platforms, IT services firms, and GCC operations hiring technical talent across India. We understand the difference between a good engineer and an exceptional one — and how the fintech world demands both deep tech and domain fluency.</div>
+      <div class="sector-roles">
+        <span class="role-tag">Software Engineers</span>
+        <span class="role-tag">Cloud / DevOps</span>
+        <span class="role-tag">AI / ML</span>
+        <span class="role-tag">Cybersecurity</span>
+        <span class="role-tag">Product Managers</span>
+        <span class="role-tag">FinTech Developers</span>
+        <span class="role-tag">Data Engineers</span>
+        <span class="role-tag">Full Stack</span>
+        <span class="role-tag">Payments &amp; Lending Tech</span>
+        <span class="role-tag">Engineering Managers</span>
+      </div>
+    </div>
+
+    <div class="sector-card pharma">
+      <div class="sector-icon">🧪</div>
+      <div class="sector-name">Pharma &amp; Healthcare</div>
+      <div class="sector-desc">Pharmaceutical manufacturers, CROs, healthtech companies, and medical device firms. Pharma hiring is specialised — a Regulatory Affairs specialist with USFDA experience is a different search from one with EU GMP. We understand the distinction.</div>
+      <div class="sector-roles">
+        <span class="role-tag">Regulatory Affairs</span>
+        <span class="role-tag">Clinical Research</span>
+        <span class="role-tag">QA / QC Managers</span>
+        <span class="role-tag">Medical Sales</span>
+        <span class="role-tag">API Chemists</span>
+        <span class="role-tag">Pharmacovigilance</span>
+        <span class="role-tag">Medical Affairs</span>
+        <span class="role-tag">Biotech Researchers</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE WORK — merged with What Makes Us Different -->
+<section class="section" id="process">
+  <div class="sec-label">04 — How We Work</div>
+  <h2 class="sec-h">From brief to joining.<br/>What <em>actually happens.</em></h2>
+  <p class="sec-lead">Six steps. No black boxes. Each one reflects a deliberate choice about how to do this better than most agencies do.</p>
+
+  <div class="process-steps">
+    <div class="ps-step">
+      <div class="ps-num-col"><div class="ps-num">1</div></div>
+      <div class="ps-body">
+        <div class="ps-title">Discovery &amp; Intake Call — not just the JD</div>
+        <div class="ps-desc">Before we start any search, we ask what the last rejected candidates lacked, what success looks like at six months, and what the real urgency is. A well-run intake call replaces three weeks of blind sourcing. The person you brief is the same person who runs your entire search — no handoffs to juniors.</div>
+        <span class="ps-badge badge-human">Human — always</span>
+      </div>
+    </div>
+
+    <div class="ps-step">
+      <div class="ps-num-col"><div class="ps-num">2</div></div>
+      <div class="ps-body">
+        <div class="ps-title">AI-Powered Sourcing</div>
+        <div class="ps-desc">We run multi-platform searches across Naukri Resdex, LinkedIn, GitHub, and niche communities using AI-generated search strings tailored to your specific requirement — producing a large, relevant candidate pool quickly after mandate signing.</div>
+        <span class="ps-badge badge-ai">AI-powered</span>
+      </div>
+    </div>
+
+    <div class="ps-step">
+      <div class="ps-num-col"><div class="ps-num">3</div></div>
+      <div class="ps-body">
+        <div class="ps-title">Personal Screening — every candidate, every time</div>
+        <div class="ps-desc">Every candidate who clears our AI filter gets a structured phone call. We verify skills, understand real motivation, assess counter-offer risk, and confirm actual CTC expectations and availability. The profile you receive reflects what we heard on the call — not what someone wrote on their CV seven months ago.</div>
+        <span class="ps-badge badge-human">Human — always</span>
+      </div>
+    </div>
+
+    <div class="ps-step">
+      <div class="ps-num-col"><div class="ps-num">4</div></div>
+      <div class="ps-body">
+        <div class="ps-title">Curated Shortlist — 2 to 3 Candidates</div>
+        <div class="ps-desc">We send two or three candidates — never more. The discipline of shortlisting forces quality and protects your time from the noise that most agencies send by default.</div>
+        <span class="ps-badge badge-both">AI-assisted, human-approved</span>
+      </div>
+    </div>
+
+    <div class="ps-step">
+      <div class="ps-num-col"><div class="ps-num">5</div></div>
+      <div class="ps-body">
+        <div class="ps-title">Interview Coordination &amp; Offer Management</div>
+        <div class="ps-desc">We brief candidates before every interview. We manage the offer negotiation and handle counter-offer conversations. We keep the process moving so strong candidates don't accept other offers while yours pauses between rounds.</div>
+        <span class="ps-badge badge-human">Human — always</span>
+      </div>
+    </div>
+
+    <div class="ps-step">
+      <div class="ps-num-col"><div class="ps-num">6</div></div>
+      <div class="ps-body">
+        <div class="ps-title">90-Day Replacement Guarantee</div>
+        <div class="ps-desc">If the placement does not work out within 90 days for any fit-related reason, we replace at no additional cost.</div>
+        <span class="ps-badge badge-human">Guaranteed</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMITMENTS -->
+<section class="section" id="commitments">
+  <div class="sec-label">05 — Our Commitments</div>
+  <h2 class="sec-h">Three things we<br/><em>guarantee on every search.</em></h2>
+  <p class="sec-lead">These are not aspirations. They are the minimum standard we hold ourselves to on every mandate we accept.</p>
+
+  <div class="commitments">
+    <div class="commit-card">
+      <div class="commit-val">2–3</div>
+      <div class="commit-label">Candidates per shortlist. Quality, not volume.</div>
+    </div>
+    <div class="commit-card">
+      <div class="commit-val">90 Days</div>
+      <div class="commit-label">Replacement guarantee on every placement</div>
+    </div>
+    <div class="commit-card">
+      <div class="commit-val">100%</div>
+      <div class="commit-label">Human judgment on every final decision</div>
+    </div>
+  </div>
+
+  <!-- PROMISE -->
+  <div class="promise">
+    <p class="promise-text">
+      We will never send you a candidate we would not personally vouch for. We will use every tool available to find them faster — and every bit of human judgment we have to make sure they are genuinely <strong>the right person for your team.</strong> That is the standard we hold ourselves to on every role, not just the important ones.
+    </p>
+    <div class="promise-sig">— Founding Team · Eureka Staffing Innovations</div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="sec-label">06 — Get in Touch</div>
+  <h2 class="sec-h">Let's talk about<br/>what you <em>actually need.</em></h2>
+  <p class="sec-lead">No hard sell. A genuine 15-minute conversation about your hiring requirement. If we can help, we'll tell you exactly how. If we can't, we'll say so.</p>
+
+  <div class="contact-layout">
+    <div class="contact-left">
+      <div class="contact-details">
+        <div class="contact-row">
+          <span class="contact-label">Email</span>
+          <span class="contact-value">hr@eureka-staffing.com</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Website</span>
+          <span class="contact-value"><a href="https://eureka-staffing.com" target="_blank">eureka-staffing.com</a></span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">LinkedIn</span>
+          <span class="contact-value"><a href="https://www.linkedin.com/company/eureka-staffng" target="_blank">linkedin.com/company/eureka-staffng</a></span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Operations</span>
+          <span class="contact-value">PAN India — all searches conducted remotely</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Sectors</span>
+          <span class="contact-value">BFSI · IT &amp; FinTech · Pharma &amp; Healthcare</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-right">
+      <div class="cr-title">Book a 15-minute intro call</div>
+      <div class="cr-body">
+        Share what you are hiring for — role, company, timeline. We will tell you how we would approach the search, what the market looks like, and what to expect. No commitment required. We work with companies between 20 and 500 employees.
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>© 2026 Eureka Staffing Innovations · PAN India</div>
+  <div>BFSI · IT &amp; FinTech · Pharma &amp; Healthcare</div>
+</footer>
+
+</body>
+</html>
